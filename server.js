@@ -120,6 +120,23 @@ app.get('/consent/getmasterconsent', function(req, res) {
     });
   });
 
+  app.post('/api/mypolicy/list', function(req, res) {
+    request({
+      headers: {
+        CONTROLKEY: req.headers['controlkey'],
+        Authorization: req.headers['authorization'],
+        "content-Type": "application/json",
+      },
+      uri: 'https://uat-web.navakij.co.th/myinformation-api-1.0.0/api/mypolicy/list',
+      body: JSON.stringify(req.body),
+      method: 'POST'
+    }, function (err, response, body) {
+      //it works!
+      console.log("response.body: ",response.body)
+      res.send(response.body)
+    });
+  });
+
 
 
 const PORT = process.env.PORT || 4000;
