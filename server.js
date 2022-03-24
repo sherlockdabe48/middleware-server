@@ -53,6 +53,9 @@ app.get('/consent/getmasterconsent', function(req, res) {
   });
   
   app.post('/consent/saveconsentinfo', function(req, res) {
+    console.log('***********')
+    console.log('red.boy-------: ', req.body)
+    console.log('***********')
     request({
       headers: {
         CONTROLKEY: req.headers['controlkey'],
